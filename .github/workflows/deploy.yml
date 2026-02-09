@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - master
+      - claude/github-pages-deployment-u9ew7
   workflow_dispatch:
 
 permissions:
