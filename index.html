@@ -3,72 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prawjek-1 | Welcome</title>
+    <title>CommodityTrack | Precious Metals & Commodities Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Prawjek-1</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-coins"></i>
+            <span>CommodityTrack</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+            <li><a href="prices.html"><i class="fas fa-globe"></i> Physical Prices</a></li>
+            <li><a href="etf.html"><i class="fas fa-chart-pie"></i> ETF Tracker</a></li>
+            <li><a href="news.html"><i class="fas fa-newspaper"></i> Market News</a></li>
+        </ul>
+        <div class="nav-time">
+            <span id="current-time"></span>
+        </div>
+    </nav>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Welcome to Prawjek-1</h1>
-                <p>Your project is now live on GitHub Pages</p>
-                <a href="#about" class="cta-button">Learn More</a>
+    <main class="dashboard">
+        <header class="dashboard-header">
+            <h1>Commodities Market Dashboard</h1>
+            <p>Real-time precious metals and commodities tracking</p>
+            <div class="last-updated">
+                <i class="fas fa-sync-alt"></i> Last updated: <span id="update-time">Loading...</span>
+            </div>
+        </header>
+
+        <!-- Quick Stats -->
+        <section class="quick-stats">
+            <div class="stat-card gold">
+                <div class="stat-icon"><i class="fas fa-coins"></i></div>
+                <div class="stat-info">
+                    <h3>Gold (XAU)</h3>
+                    <p class="price" id="gold-price">$---.--</p>
+                    <span class="change positive" id="gold-change">+0.00%</span>
+                </div>
+            </div>
+            <div class="stat-card silver">
+                <div class="stat-icon"><i class="fas fa-circle"></i></div>
+                <div class="stat-info">
+                    <h3>Silver (XAG)</h3>
+                    <p class="price" id="silver-price">$---.--</p>
+                    <span class="change positive" id="silver-change">+0.00%</span>
+                </div>
+            </div>
+            <div class="stat-card platinum">
+                <div class="stat-icon"><i class="fas fa-gem"></i></div>
+                <div class="stat-info">
+                    <h3>Platinum (XPT)</h3>
+                    <p class="price" id="platinum-price">$---.--</p>
+                    <span class="change negative" id="platinum-change">-0.00%</span>
+                </div>
+            </div>
+            <div class="stat-card palladium">
+                <div class="stat-icon"><i class="fas fa-ring"></i></div>
+                <div class="stat-info">
+                    <h3>Palladium (XPD)</h3>
+                    <p class="price" id="palladium-price">$---.--</p>
+                    <span class="change positive" id="palladium-change">+0.00%</span>
+                </div>
             </div>
         </section>
 
-        <section id="about" class="about">
-            <div class="container">
-                <h2>About This Project</h2>
-                <p>This website was automatically deployed to GitHub Pages. You can customize this content to showcase your project, portfolio, or anything else you'd like to share with the world.</p>
+        <!-- Market Overview -->
+        <section class="market-overview">
+            <div class="overview-card">
+                <h2><i class="fas fa-chart-area"></i> Market Overview</h2>
+                <div class="market-table-container">
+                    <table class="market-table">
+                        <thead>
+                            <tr>
+                                <th>Metal</th>
+                                <th>Bid</th>
+                                <th>Ask</th>
+                                <th>High</th>
+                                <th>Low</th>
+                                <th>Change</th>
+                            </tr>
+                        </thead>
+                        <tbody id="market-table-body">
+                            <tr>
+                                <td><span class="metal-badge gold">Gold</span></td>
+                                <td id="gold-bid">$---</td>
+                                <td id="gold-ask">$---</td>
+                                <td id="gold-high">$---</td>
+                                <td id="gold-low">$---</td>
+                                <td><span class="change-badge positive" id="gold-table-change">+0.00%</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="metal-badge silver">Silver</span></td>
+                                <td id="silver-bid">$---</td>
+                                <td id="silver-ask">$---</td>
+                                <td id="silver-high">$---</td>
+                                <td id="silver-low">$---</td>
+                                <td><span class="change-badge positive" id="silver-table-change">+0.00%</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="metal-badge platinum">Platinum</span></td>
+                                <td id="platinum-bid">$---</td>
+                                <td id="platinum-ask">$---</td>
+                                <td id="platinum-high">$---</td>
+                                <td id="platinum-low">$---</td>
+                                <td><span class="change-badge negative" id="platinum-table-change">-0.00%</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="metal-badge palladium">Palladium</span></td>
+                                <td id="palladium-bid">$---</td>
+                                <td id="palladium-ask">$---</td>
+                                <td id="palladium-high">$---</td>
+                                <td id="palladium-low">$---</td>
+                                <td><span class="change-badge positive" id="palladium-table-change">+0.00%</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </section>
 
-        <section id="features" class="features">
-            <div class="container">
-                <h2>Features</h2>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🚀</div>
-                        <h3>Fast Deployment</h3>
-                        <p>Automatically deployed via GitHub Actions whenever you push changes.</p>
+            <div class="overview-card">
+                <h2><i class="fas fa-calculator"></i> Quick Calculator</h2>
+                <div class="calculator">
+                    <div class="calc-input">
+                        <label for="calc-metal">Select Metal</label>
+                        <select id="calc-metal">
+                            <option value="gold">Gold</option>
+                            <option value="silver">Silver</option>
+                            <option value="platinum">Platinum</option>
+                            <option value="palladium">Palladium</option>
+                        </select>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🎨</div>
-                        <h3>Modern Design</h3>
-                        <p>Clean, responsive design that looks great on any device.</p>
+                    <div class="calc-input">
+                        <label for="calc-weight">Weight (oz)</label>
+                        <input type="number" id="calc-weight" value="1" min="0.01" step="0.01">
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔧</div>
-                        <h3>Easy to Customize</h3>
-                        <p>Simple HTML and CSS that you can modify to fit your needs.</p>
+                    <div class="calc-result">
+                        <span>Total Value</span>
+                        <p id="calc-total">$0.00</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2>Get In Touch</h2>
-                <p>Have questions or want to collaborate? Reach out!</p>
-                <a href="https://github.com/vishchhab-bit/Prawjek-1" class="cta-button">View on GitHub</a>
+        <!-- Currency Converter & World Markets -->
+        <section class="bottom-section">
+            <div class="overview-card">
+                <h2><i class="fas fa-exchange-alt"></i> Currency Converter</h2>
+                <div class="converter">
+                    <div class="converter-row">
+                        <input type="number" id="usd-amount" value="1000" min="0">
+                        <span class="currency-label">USD</span>
+                    </div>
+                    <div class="converter-results">
+                        <div class="currency-result">
+                            <span class="flag">EUR</span>
+                            <span id="eur-value">---</span>
+                        </div>
+                        <div class="currency-result">
+                            <span class="flag">GBP</span>
+                            <span id="gbp-value">---</span>
+                        </div>
+                        <div class="currency-result">
+                            <span class="flag">JPY</span>
+                            <span id="jpy-value">---</span>
+                        </div>
+                        <div class="currency-result">
+                            <span class="flag">CHF</span>
+                            <span id="chf-value">---</span>
+                        </div>
+                        <div class="currency-result">
+                            <span class="flag">INR</span>
+                            <span id="inr-value">---</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overview-card">
+                <h2><i class="fas fa-globe-americas"></i> World Market Status</h2>
+                <div class="world-markets">
+                    <div class="market-status">
+                        <span class="market-name">New York (COMEX)</span>
+                        <span class="market-indicator" id="ny-status">Closed</span>
+                    </div>
+                    <div class="market-status">
+                        <span class="market-name">London (LBMA)</span>
+                        <span class="market-indicator" id="london-status">Closed</span>
+                    </div>
+                    <div class="market-status">
+                        <span class="market-name">Tokyo (TOCOM)</span>
+                        <span class="market-indicator" id="tokyo-status">Closed</span>
+                    </div>
+                    <div class="market-status">
+                        <span class="market-name">Shanghai (SGE)</span>
+                        <span class="market-indicator" id="shanghai-status">Closed</span>
+                    </div>
+                    <div class="market-status">
+                        <span class="market-name">Hong Kong</span>
+                        <span class="market-indicator" id="hk-status">Closed</span>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Prawjek-1. Deployed with GitHub Pages.</p>
+        <p>CommodityTrack &copy; 2026 | Data provided for informational purposes only</p>
+        <p>Prices may be delayed. Not financial advice.</p>
     </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>

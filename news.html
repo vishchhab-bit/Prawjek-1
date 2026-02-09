@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market News | CommodityTrack</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-coins"></i>
+            <span>CommodityTrack</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+            <li><a href="prices.html"><i class="fas fa-globe"></i> Physical Prices</a></li>
+            <li><a href="etf.html"><i class="fas fa-chart-pie"></i> ETF Tracker</a></li>
+            <li><a href="news.html" class="active"><i class="fas fa-newspaper"></i> Market News</a></li>
+        </ul>
+        <div class="nav-time">
+            <span id="current-time"></span>
+        </div>
+    </nav>
+
+    <main class="dashboard">
+        <header class="dashboard-header">
+            <h1><i class="fas fa-newspaper"></i> Market News & Analysis</h1>
+            <p>Latest news and insights on precious metals and commodities markets</p>
+        </header>
+
+        <!-- Breaking News Ticker -->
+        <section class="news-ticker">
+            <div class="ticker-label"><i class="fas fa-bolt"></i> BREAKING</div>
+            <div class="ticker-content">
+                <div class="ticker-wrapper" id="news-ticker">
+                    <span>Gold hits new monthly high as Fed signals potential rate cuts</span>
+                    <span class="ticker-sep">|</span>
+                    <span>Silver demand surges on solar panel manufacturing boom</span>
+                    <span class="ticker-sep">|</span>
+                    <span>Central banks continue gold accumulation in Q1 2026</span>
+                    <span class="ticker-sep">|</span>
+                    <span>Platinum supply concerns mount amid South African power issues</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured News -->
+        <section class="featured-news">
+            <div class="featured-article">
+                <div class="featured-image" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1610375461246-83df859d849d?w=800') center/cover;">
+                    <span class="article-category gold">Gold</span>
+                    <div class="featured-content">
+                        <h2>Gold Prices Surge to Record High Amid Global Economic Uncertainty</h2>
+                        <p>Precious metal reaches all-time high as investors seek safe-haven assets amid inflation concerns and geopolitical tensions.</p>
+                        <div class="article-meta">
+                            <span><i class="fas fa-clock"></i> 2 hours ago</span>
+                            <span><i class="fas fa-user"></i> Reuters</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Grid -->
+        <section class="news-section">
+            <div class="news-filters">
+                <button class="news-filter active" data-filter="all">All News</button>
+                <button class="news-filter" data-filter="gold">Gold</button>
+                <button class="news-filter" data-filter="silver">Silver</button>
+                <button class="news-filter" data-filter="platinum">Platinum</button>
+                <button class="news-filter" data-filter="market">Market</button>
+            </div>
+
+            <div class="news-grid">
+                <!-- News Article 1 -->
+                <article class="news-card" data-category="gold">
+                    <div class="news-image">
+                        <span class="article-category gold">Gold</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Central Banks Add 39 Tonnes of Gold to Reserves in January</h3>
+                        <p>Global central banks continue their gold buying spree, with China and Poland leading purchases as nations diversify away from dollar reserves.</p>
+                        <div class="news-meta">
+                            <span><i class="fas fa-clock"></i> 3 hours ago</span>
+                            <span><i class="fas fa-comments"></i> 24 comments</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Article 2 -->
+                <article class="news-card" data-category="silver">
+                    <div class="news-image silver-bg">
+                        <span class="article-category silver">Silver</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Silver Industrial Demand Expected to Hit Record in 2026</h3>
+                        <p>Solar panel production and EV manufacturing drive unprecedented demand for silver, potentially creating supply deficit.</p>
+                        <div class="news-meta">
+                            <span><i class="fas fa-clock"></i> 5 hours ago</span>
+                            <span><i class="fas fa-comments"></i> 18 comments</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Article 3 -->
+                <article class="news-card" data-category="market">
+                    <div class="news-image market-bg">
+                        <span class="article-category market">Market</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Fed Minutes Signal Cautious Approach to Rate Cuts</h3>
+                        <p>Federal Reserve officials remain divided on timing of rate cuts, supporting precious metals as inflation hedge.</p>
+                        <div class="news-meta">
+                            <span><i class="fas fa-clock"></i> 6 hours ago</span>
+                            <span><i class="fas fa-comments"></i> 42 comments</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Article 4 -->
+                <article class="news-card" data-category="platinum">
+                    <div class="news-image platinum-bg">
+                        <span class="article-category platinum">Platinum</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Platinum Deficit Widens as Hydrogen Economy Gains Momentum</h3>
+                        <p>Growing hydrogen fuel cell adoption creates new demand source for platinum, adding pressure to already tight supply.</p>
+                        <div class="news-meta">
+                            <span><i class="fas fa-clock"></i> 8 hours ago</span>
+                            <span><i class="fas fa-comments"></i> 15 comments</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Article 5 -->
+                <article class="news-card" data-category="gold">
+                    <div class="news-image">
+                        <span class="article-category gold">Gold</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Gold ETF Inflows Hit 6-Month High in February</h3>
+                        <p>Investors pour $2.3 billion into gold-backed ETFs as economic concerns drive flight to safety.</p>
+                        <div class="news-meta">
+                            <span><i class="fas fa-clock"></i> 10 hours ago</span>
+                            <span><i class="fas fa-comments"></i> 31 comments</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Article 6 -->
+                <article class="news-card" data-category="silver">
+                    <div class="news-image silver-bg">
+                        <span class="article-category silver">Silver</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Mexico Silver Production Falls 8% in 2025</h3>
+                        <p>World's largest silver producer sees output decline due to aging mines and regulatory challenges.</p>
+                        <div class="news-meta">
+                            <span><i class="fas fa-clock"></i> 12 hours ago</span>
+                            <span><i class="fas fa-comments"></i> 22 comments</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Article 7 -->
+                <article class="news-card" data-category="market">
+                    <div class="news-image market-bg">
+                        <span class="article-category market">Analysis</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Technical Analysis: Gold Breakout Targets $3,000</h3>
+                        <p>Chart patterns suggest gold could rally to psychological $3,000 level if current momentum continues.</p>
+                        <div class="news-meta">
+                            <span><i class="fas fa-clock"></i> 14 hours ago</span>
+                            <span><i class="fas fa-comments"></i> 56 comments</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Article 8 -->
+                <article class="news-card" data-category="market">
+                    <div class="news-image market-bg">
+                        <span class="article-category market">Economy</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Dollar Weakens Against Major Currencies</h3>
+                        <p>US dollar index falls to 3-month low, providing tailwind for dollar-denominated commodities.</p>
+                        <div class="news-meta">
+                            <span><i class="fas fa-clock"></i> 16 hours ago</span>
+                            <span><i class="fas fa-comments"></i> 28 comments</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Market Calendar -->
+        <section class="market-calendar">
+            <h2><i class="fas fa-calendar-alt"></i> Upcoming Economic Events</h2>
+            <div class="calendar-grid">
+                <div class="calendar-event high-impact">
+                    <div class="event-date">
+                        <span class="day">12</span>
+                        <span class="month">FEB</span>
+                    </div>
+                    <div class="event-details">
+                        <h4>US CPI Data Release</h4>
+                        <p>Consumer Price Index for January 2026</p>
+                        <span class="event-impact high">High Impact</span>
+                    </div>
+                    <div class="event-time">8:30 AM EST</div>
+                </div>
+
+                <div class="calendar-event medium-impact">
+                    <div class="event-date">
+                        <span class="day">14</span>
+                        <span class="month">FEB</span>
+                    </div>
+                    <div class="event-details">
+                        <h4>LBMA Gold Price Fix</h4>
+                        <p>London Bullion Market Association daily fixing</p>
+                        <span class="event-impact medium">Medium Impact</span>
+                    </div>
+                    <div class="event-time">10:30 AM GMT</div>
+                </div>
+
+                <div class="calendar-event high-impact">
+                    <div class="event-date">
+                        <span class="day">19</span>
+                        <span class="month">FEB</span>
+                    </div>
+                    <div class="event-details">
+                        <h4>FOMC Meeting Minutes</h4>
+                        <p>Federal Reserve meeting minutes release</p>
+                        <span class="event-impact high">High Impact</span>
+                    </div>
+                    <div class="event-time">2:00 PM EST</div>
+                </div>
+
+                <div class="calendar-event medium-impact">
+                    <div class="event-date">
+                        <span class="day">21</span>
+                        <span class="month">FEB</span>
+                    </div>
+                    <div class="event-details">
+                        <h4>World Gold Council Report</h4>
+                        <p>Monthly gold demand trends report</p>
+                        <span class="event-impact medium">Medium Impact</span>
+                    </div>
+                    <div class="event-time">9:00 AM EST</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Signup -->
+        <section class="newsletter-section">
+            <div class="newsletter-content">
+                <h2><i class="fas fa-envelope"></i> Stay Informed</h2>
+                <p>Get daily market updates and analysis delivered to your inbox</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>CommodityTrack &copy; 2026 | Data provided for informational purposes only</p>
+        <p>Prices may be delayed. Not financial advice.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

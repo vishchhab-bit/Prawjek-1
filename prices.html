@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical Prices | CommodityTrack</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-coins"></i>
+            <span>CommodityTrack</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+            <li><a href="prices.html" class="active"><i class="fas fa-globe"></i> Physical Prices</a></li>
+            <li><a href="etf.html"><i class="fas fa-chart-pie"></i> ETF Tracker</a></li>
+            <li><a href="news.html"><i class="fas fa-newspaper"></i> Market News</a></li>
+        </ul>
+        <div class="nav-time">
+            <span id="current-time"></span>
+        </div>
+    </nav>
+
+    <main class="dashboard">
+        <header class="dashboard-header">
+            <h1><i class="fas fa-globe"></i> Physical Prices by Region</h1>
+            <p>Spot prices for precious metals across major world markets</p>
+        </header>
+
+        <!-- Spot Prices Section -->
+        <section class="prices-grid">
+            <!-- Gold Prices -->
+            <div class="price-card featured">
+                <div class="price-header gold-gradient">
+                    <h2><i class="fas fa-coins"></i> Gold (XAU)</h2>
+                    <span class="spot-label">Spot Price</span>
+                </div>
+                <div class="price-body">
+                    <div class="main-price">
+                        <span class="currency">$</span>
+                        <span class="amount" id="gold-spot">2,892.45</span>
+                        <span class="unit">/oz</span>
+                    </div>
+                    <div class="price-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span id="gold-spot-change">+12.30 (+0.43%)</span>
+                    </div>
+                    <div class="price-details">
+                        <div class="detail-row">
+                            <span>Per Gram</span>
+                            <span id="gold-gram">$93.00</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>Per Kilo</span>
+                            <span id="gold-kilo">$92,998.50</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>24h High</span>
+                            <span id="gold-24h-high">$2,905.20</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>24h Low</span>
+                            <span id="gold-24h-low">$2,875.10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Silver Prices -->
+            <div class="price-card featured">
+                <div class="price-header silver-gradient">
+                    <h2><i class="fas fa-circle"></i> Silver (XAG)</h2>
+                    <span class="spot-label">Spot Price</span>
+                </div>
+                <div class="price-body">
+                    <div class="main-price">
+                        <span class="currency">$</span>
+                        <span class="amount" id="silver-spot">32.18</span>
+                        <span class="unit">/oz</span>
+                    </div>
+                    <div class="price-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span id="silver-spot-change">+0.24 (+0.75%)</span>
+                    </div>
+                    <div class="price-details">
+                        <div class="detail-row">
+                            <span>Per Gram</span>
+                            <span id="silver-gram">$1.03</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>Per Kilo</span>
+                            <span id="silver-kilo">$1,034.68</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>24h High</span>
+                            <span id="silver-24h-high">$32.45</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>24h Low</span>
+                            <span id="silver-24h-low">$31.82</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platinum Prices -->
+            <div class="price-card">
+                <div class="price-header platinum-gradient">
+                    <h2><i class="fas fa-gem"></i> Platinum (XPT)</h2>
+                    <span class="spot-label">Spot Price</span>
+                </div>
+                <div class="price-body">
+                    <div class="main-price">
+                        <span class="currency">$</span>
+                        <span class="amount" id="platinum-spot">982.50</span>
+                        <span class="unit">/oz</span>
+                    </div>
+                    <div class="price-change negative">
+                        <i class="fas fa-arrow-down"></i>
+                        <span id="platinum-spot-change">-5.20 (-0.53%)</span>
+                    </div>
+                    <div class="price-details">
+                        <div class="detail-row">
+                            <span>Per Gram</span>
+                            <span id="platinum-gram">$31.59</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>Per Kilo</span>
+                            <span id="platinum-kilo">$31,590.00</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>24h High</span>
+                            <span id="platinum-24h-high">$992.30</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>24h Low</span>
+                            <span id="platinum-24h-low">$978.40</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Palladium Prices -->
+            <div class="price-card">
+                <div class="price-header palladium-gradient">
+                    <h2><i class="fas fa-ring"></i> Palladium (XPD)</h2>
+                    <span class="spot-label">Spot Price</span>
+                </div>
+                <div class="price-body">
+                    <div class="main-price">
+                        <span class="currency">$</span>
+                        <span class="amount" id="palladium-spot">968.25</span>
+                        <span class="unit">/oz</span>
+                    </div>
+                    <div class="price-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span id="palladium-spot-change">+8.75 (+0.91%)</span>
+                    </div>
+                    <div class="price-details">
+                        <div class="detail-row">
+                            <span>Per Gram</span>
+                            <span id="palladium-gram">$31.13</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>Per Kilo</span>
+                            <span id="palladium-kilo">$31,130.00</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>24h High</span>
+                            <span id="palladium-24h-high">$975.50</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>24h Low</span>
+                            <span id="palladium-24h-low">$955.20</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- World Markets Section -->
+        <section class="world-prices-section">
+            <h2><i class="fas fa-globe-americas"></i> Gold Prices by Market</h2>
+            <div class="world-prices-grid">
+                <div class="market-card">
+                    <div class="market-flag">
+                        <span class="fi fi-us"></span>
+                        <h3>United States</h3>
+                        <span class="exchange">COMEX</span>
+                    </div>
+                    <div class="market-price">
+                        <span class="price">$2,892.45</span>
+                        <span class="change positive">+0.43%</span>
+                    </div>
+                    <div class="market-currency">USD/oz</div>
+                </div>
+
+                <div class="market-card">
+                    <div class="market-flag">
+                        <span class="fi fi-gb"></span>
+                        <h3>United Kingdom</h3>
+                        <span class="exchange">LBMA</span>
+                    </div>
+                    <div class="market-price">
+                        <span class="price">£2,285.60</span>
+                        <span class="change positive">+0.38%</span>
+                    </div>
+                    <div class="market-currency">GBP/oz</div>
+                </div>
+
+                <div class="market-card">
+                    <div class="market-flag">
+                        <span class="fi fi-eu"></span>
+                        <h3>Europe</h3>
+                        <span class="exchange">Euro Market</span>
+                    </div>
+                    <div class="market-price">
+                        <span class="price">€2,678.90</span>
+                        <span class="change positive">+0.41%</span>
+                    </div>
+                    <div class="market-currency">EUR/oz</div>
+                </div>
+
+                <div class="market-card">
+                    <div class="market-flag">
+                        <span class="fi fi-jp"></span>
+                        <h3>Japan</h3>
+                        <span class="exchange">TOCOM</span>
+                    </div>
+                    <div class="market-price">
+                        <span class="price">¥434,250</span>
+                        <span class="change positive">+0.52%</span>
+                    </div>
+                    <div class="market-currency">JPY/oz</div>
+                </div>
+
+                <div class="market-card">
+                    <div class="market-flag">
+                        <span class="fi fi-cn"></span>
+                        <h3>China</h3>
+                        <span class="exchange">SGE</span>
+                    </div>
+                    <div class="market-price">
+                        <span class="price">¥21,025</span>
+                        <span class="change positive">+0.45%</span>
+                    </div>
+                    <div class="market-currency">CNY/gram</div>
+                </div>
+
+                <div class="market-card">
+                    <div class="market-flag">
+                        <span class="fi fi-in"></span>
+                        <h3>India</h3>
+                        <span class="exchange">MCX</span>
+                    </div>
+                    <div class="market-price">
+                        <span class="price">₹241,850</span>
+                        <span class="change positive">+0.48%</span>
+                    </div>
+                    <div class="market-currency">INR/10g</div>
+                </div>
+
+                <div class="market-card">
+                    <div class="market-flag">
+                        <span class="fi fi-ch"></span>
+                        <h3>Switzerland</h3>
+                        <span class="exchange">Zurich</span>
+                    </div>
+                    <div class="market-price">
+                        <span class="price">CHF 2,542.30</span>
+                        <span class="change positive">+0.39%</span>
+                    </div>
+                    <div class="market-currency">CHF/oz</div>
+                </div>
+
+                <div class="market-card">
+                    <div class="market-flag">
+                        <span class="fi fi-au"></span>
+                        <h3>Australia</h3>
+                        <span class="exchange">Sydney</span>
+                    </div>
+                    <div class="market-price">
+                        <span class="price">A$4,512.80</span>
+                        <span class="change positive">+0.44%</span>
+                    </div>
+                    <div class="market-currency">AUD/oz</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Commodities -->
+        <section class="other-commodities">
+            <h2><i class="fas fa-cubes"></i> Other Commodities</h2>
+            <div class="commodities-table-container">
+                <table class="commodities-table">
+                    <thead>
+                        <tr>
+                            <th>Commodity</th>
+                            <th>Price</th>
+                            <th>Change</th>
+                            <th>% Change</th>
+                            <th>High</th>
+                            <th>Low</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fas fa-tint" style="color: #333;"></i> Crude Oil (WTI)</td>
+                            <td>$78.45</td>
+                            <td class="positive">+1.23</td>
+                            <td class="positive">+1.59%</td>
+                            <td>$79.10</td>
+                            <td>$76.85</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-tint" style="color: #444;"></i> Brent Crude</td>
+                            <td>$82.30</td>
+                            <td class="positive">+0.98</td>
+                            <td class="positive">+1.21%</td>
+                            <td>$83.05</td>
+                            <td>$80.90</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-fire" style="color: #f39c12;"></i> Natural Gas</td>
+                            <td>$3.24</td>
+                            <td class="negative">-0.08</td>
+                            <td class="negative">-2.41%</td>
+                            <td>$3.35</td>
+                            <td>$3.18</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-cube" style="color: #b87333;"></i> Copper</td>
+                            <td>$4.28</td>
+                            <td class="positive">+0.05</td>
+                            <td class="positive">+1.18%</td>
+                            <td>$4.32</td>
+                            <td>$4.21</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-leaf" style="color: #27ae60;"></i> Aluminum</td>
+                            <td>$2,485.00</td>
+                            <td class="positive">+18.50</td>
+                            <td class="positive">+0.75%</td>
+                            <td>$2,498.00</td>
+                            <td>$2,462.00</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-seedling" style="color: #f1c40f;"></i> Wheat</td>
+                            <td>$5.82</td>
+                            <td class="negative">-0.12</td>
+                            <td class="negative">-2.02%</td>
+                            <td>$5.98</td>
+                            <td>$5.75</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-seedling" style="color: #e67e22;"></i> Corn</td>
+                            <td>$4.56</td>
+                            <td class="positive">+0.03</td>
+                            <td class="positive">+0.66%</td>
+                            <td>$4.62</td>
+                            <td>$4.51</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>CommodityTrack &copy; 2026 | Data provided for informational purposes only</p>
+        <p>Prices may be delayed. Not financial advice.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

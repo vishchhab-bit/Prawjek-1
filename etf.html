@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETF Tracker | CommodityTrack</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-coins"></i>
+            <span>CommodityTrack</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+            <li><a href="prices.html"><i class="fas fa-globe"></i> Physical Prices</a></li>
+            <li><a href="etf.html" class="active"><i class="fas fa-chart-pie"></i> ETF Tracker</a></li>
+            <li><a href="news.html"><i class="fas fa-newspaper"></i> Market News</a></li>
+        </ul>
+        <div class="nav-time">
+            <span id="current-time"></span>
+        </div>
+    </nav>
+
+    <main class="dashboard">
+        <header class="dashboard-header">
+            <h1><i class="fas fa-chart-pie"></i> Precious Metals ETF Tracker</h1>
+            <p>Track major gold, silver, and precious metals ETFs in real-time</p>
+        </header>
+
+        <!-- Top ETFs Overview -->
+        <section class="etf-overview">
+            <div class="etf-highlight-card gold">
+                <div class="etf-header">
+                    <span class="etf-ticker">GLD</span>
+                    <span class="etf-name">SPDR Gold Shares</span>
+                </div>
+                <div class="etf-price">$267.84</div>
+                <div class="etf-change positive">
+                    <i class="fas fa-arrow-up"></i> +1.23 (+0.46%)
+                </div>
+                <div class="etf-meta">
+                    <span><i class="fas fa-chart-bar"></i> Vol: 5.2M</span>
+                    <span><i class="fas fa-wallet"></i> AUM: $62.8B</span>
+                </div>
+            </div>
+
+            <div class="etf-highlight-card silver">
+                <div class="etf-header">
+                    <span class="etf-ticker">SLV</span>
+                    <span class="etf-name">iShares Silver Trust</span>
+                </div>
+                <div class="etf-price">$29.45</div>
+                <div class="etf-change positive">
+                    <i class="fas fa-arrow-up"></i> +0.32 (+1.10%)
+                </div>
+                <div class="etf-meta">
+                    <span><i class="fas fa-chart-bar"></i> Vol: 12.8M</span>
+                    <span><i class="fas fa-wallet"></i> AUM: $11.2B</span>
+                </div>
+            </div>
+
+            <div class="etf-highlight-card gold">
+                <div class="etf-header">
+                    <span class="etf-ticker">IAU</span>
+                    <span class="etf-name">iShares Gold Trust</span>
+                </div>
+                <div class="etf-price">$53.92</div>
+                <div class="etf-change positive">
+                    <i class="fas fa-arrow-up"></i> +0.24 (+0.45%)
+                </div>
+                <div class="etf-meta">
+                    <span><i class="fas fa-chart-bar"></i> Vol: 3.8M</span>
+                    <span><i class="fas fa-wallet"></i> AUM: $28.5B</span>
+                </div>
+            </div>
+
+            <div class="etf-highlight-card platinum">
+                <div class="etf-header">
+                    <span class="etf-ticker">PPLT</span>
+                    <span class="etf-name">Physical Platinum</span>
+                </div>
+                <div class="etf-price">$89.76</div>
+                <div class="etf-change negative">
+                    <i class="fas fa-arrow-down"></i> -0.48 (-0.53%)
+                </div>
+                <div class="etf-meta">
+                    <span><i class="fas fa-chart-bar"></i> Vol: 42K</span>
+                    <span><i class="fas fa-wallet"></i> AUM: $892M</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Full ETF Table -->
+        <section class="etf-table-section">
+            <div class="section-header">
+                <h2><i class="fas fa-list"></i> All Precious Metals ETFs</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="gold">Gold</button>
+                    <button class="filter-btn" data-filter="silver">Silver</button>
+                    <button class="filter-btn" data-filter="other">Other</button>
+                </div>
+            </div>
+
+            <div class="etf-table-container">
+                <table class="etf-table">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Change</th>
+                            <th>% Change</th>
+                            <th>Volume</th>
+                            <th>AUM</th>
+                            <th>Expense Ratio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Gold ETFs -->
+                        <tr data-type="gold">
+                            <td class="ticker gold">GLD</td>
+                            <td>SPDR Gold Shares</td>
+                            <td>$267.84</td>
+                            <td class="positive">+$1.23</td>
+                            <td class="positive">+0.46%</td>
+                            <td>5.2M</td>
+                            <td>$62.8B</td>
+                            <td>0.40%</td>
+                        </tr>
+                        <tr data-type="gold">
+                            <td class="ticker gold">IAU</td>
+                            <td>iShares Gold Trust</td>
+                            <td>$53.92</td>
+                            <td class="positive">+$0.24</td>
+                            <td class="positive">+0.45%</td>
+                            <td>3.8M</td>
+                            <td>$28.5B</td>
+                            <td>0.25%</td>
+                        </tr>
+                        <tr data-type="gold">
+                            <td class="ticker gold">GLDM</td>
+                            <td>SPDR Gold MiniShares</td>
+                            <td>$52.18</td>
+                            <td class="positive">+$0.22</td>
+                            <td class="positive">+0.42%</td>
+                            <td>1.2M</td>
+                            <td>$8.2B</td>
+                            <td>0.10%</td>
+                        </tr>
+                        <tr data-type="gold">
+                            <td class="ticker gold">SGOL</td>
+                            <td>Aberdeen Physical Gold</td>
+                            <td>$26.78</td>
+                            <td class="positive">+$0.11</td>
+                            <td class="positive">+0.41%</td>
+                            <td>890K</td>
+                            <td>$3.1B</td>
+                            <td>0.17%</td>
+                        </tr>
+                        <tr data-type="gold">
+                            <td class="ticker gold">AAAU</td>
+                            <td>Goldman Sachs Physical Gold</td>
+                            <td>$26.45</td>
+                            <td class="positive">+$0.12</td>
+                            <td class="positive">+0.46%</td>
+                            <td>420K</td>
+                            <td>$1.2B</td>
+                            <td>0.18%</td>
+                        </tr>
+                        <!-- Silver ETFs -->
+                        <tr data-type="silver">
+                            <td class="ticker silver">SLV</td>
+                            <td>iShares Silver Trust</td>
+                            <td>$29.45</td>
+                            <td class="positive">+$0.32</td>
+                            <td class="positive">+1.10%</td>
+                            <td>12.8M</td>
+                            <td>$11.2B</td>
+                            <td>0.50%</td>
+                        </tr>
+                        <tr data-type="silver">
+                            <td class="ticker silver">SIVR</td>
+                            <td>Aberdeen Physical Silver</td>
+                            <td>$29.12</td>
+                            <td class="positive">+$0.28</td>
+                            <td class="positive">+0.97%</td>
+                            <td>245K</td>
+                            <td>$1.4B</td>
+                            <td>0.30%</td>
+                        </tr>
+                        <tr data-type="silver">
+                            <td class="ticker silver">PSLV</td>
+                            <td>Sprott Physical Silver</td>
+                            <td>$10.28</td>
+                            <td class="positive">+$0.09</td>
+                            <td class="positive">+0.88%</td>
+                            <td>1.8M</td>
+                            <td>$5.2B</td>
+                            <td>0.62%</td>
+                        </tr>
+                        <!-- Other Precious Metals -->
+                        <tr data-type="other">
+                            <td class="ticker platinum">PPLT</td>
+                            <td>Aberdeen Physical Platinum</td>
+                            <td>$89.76</td>
+                            <td class="negative">-$0.48</td>
+                            <td class="negative">-0.53%</td>
+                            <td>42K</td>
+                            <td>$892M</td>
+                            <td>0.60%</td>
+                        </tr>
+                        <tr data-type="other">
+                            <td class="ticker palladium">PALL</td>
+                            <td>Aberdeen Physical Palladium</td>
+                            <td>$88.92</td>
+                            <td class="positive">+$0.76</td>
+                            <td class="positive">+0.86%</td>
+                            <td>18K</td>
+                            <td>$285M</td>
+                            <td>0.60%</td>
+                        </tr>
+                        <tr data-type="other">
+                            <td class="ticker gold">GLTR</td>
+                            <td>Aberdeen Precious Metals Basket</td>
+                            <td>$108.45</td>
+                            <td class="positive">+$0.52</td>
+                            <td class="positive">+0.48%</td>
+                            <td>28K</td>
+                            <td>$1.1B</td>
+                            <td>0.60%</td>
+                        </tr>
+                        <!-- Mining ETFs -->
+                        <tr data-type="gold">
+                            <td class="ticker gold">GDX</td>
+                            <td>VanEck Gold Miners ETF</td>
+                            <td>$38.92</td>
+                            <td class="positive">+$0.68</td>
+                            <td class="positive">+1.78%</td>
+                            <td>18.5M</td>
+                            <td>$14.2B</td>
+                            <td>0.51%</td>
+                        </tr>
+                        <tr data-type="gold">
+                            <td class="ticker gold">GDXJ</td>
+                            <td>VanEck Junior Gold Miners</td>
+                            <td>$45.28</td>
+                            <td class="positive">+$0.92</td>
+                            <td class="positive">+2.07%</td>
+                            <td>8.2M</td>
+                            <td>$5.8B</td>
+                            <td>0.52%</td>
+                        </tr>
+                        <tr data-type="silver">
+                            <td class="ticker silver">SIL</td>
+                            <td>Global X Silver Miners ETF</td>
+                            <td>$32.45</td>
+                            <td class="positive">+$0.58</td>
+                            <td class="positive">+1.82%</td>
+                            <td>1.2M</td>
+                            <td>$1.1B</td>
+                            <td>0.65%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ETF Comparison -->
+        <section class="etf-comparison">
+            <h2><i class="fas fa-balance-scale"></i> ETF Comparison Tool</h2>
+            <div class="comparison-container">
+                <div class="comparison-selector">
+                    <div class="selector-group">
+                        <label>Compare ETF 1</label>
+                        <select id="etf1-select">
+                            <option value="GLD">GLD - SPDR Gold Shares</option>
+                            <option value="IAU">IAU - iShares Gold Trust</option>
+                            <option value="SLV">SLV - iShares Silver Trust</option>
+                            <option value="PPLT">PPLT - Physical Platinum</option>
+                        </select>
+                    </div>
+                    <div class="vs-badge">VS</div>
+                    <div class="selector-group">
+                        <label>Compare ETF 2</label>
+                        <select id="etf2-select">
+                            <option value="IAU">IAU - iShares Gold Trust</option>
+                            <option value="GLD">GLD - SPDR Gold Shares</option>
+                            <option value="SLV">SLV - iShares Silver Trust</option>
+                            <option value="PPLT">PPLT - Physical Platinum</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="comparison-results">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th id="comp-etf1-header">GLD</th>
+                                <th id="comp-etf2-header">IAU</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Price</td>
+                                <td>$267.84</td>
+                                <td>$53.92</td>
+                            </tr>
+                            <tr>
+                                <td>Expense Ratio</td>
+                                <td>0.40%</td>
+                                <td class="highlight">0.25%</td>
+                            </tr>
+                            <tr>
+                                <td>AUM</td>
+                                <td class="highlight">$62.8B</td>
+                                <td>$28.5B</td>
+                            </tr>
+                            <tr>
+                                <td>Avg Volume</td>
+                                <td class="highlight">5.2M</td>
+                                <td>3.8M</td>
+                            </tr>
+                            <tr>
+                                <td>YTD Return</td>
+                                <td>+8.45%</td>
+                                <td class="highlight">+8.52%</td>
+                            </tr>
+                            <tr>
+                                <td>1Y Return</td>
+                                <td>+12.8%</td>
+                                <td class="highlight">+12.9%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>CommodityTrack &copy; 2026 | Data provided for informational purposes only</p>
+        <p>Prices may be delayed. Not financial advice.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
