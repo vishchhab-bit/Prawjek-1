@@ -179,12 +179,12 @@ function updateMetalFromAPI(metal, price) {
 
 function setFallbackPrices() {
     // Current realistic market prices as of Feb 2026
-    // These serve as fallback when APIs are unavailable
+    // Based on physical commodity spot prices (not crypto)
     const fallbackData = {
-        gold: { price: 2920, prevClose: 2905 },
-        silver: { price: 32.50, prevClose: 32.20 },
-        platinum: { price: 985, prevClose: 990 },
-        palladium: { price: 975, prevClose: 965 }
+        gold: { price: 2890, prevClose: 2875 },
+        silver: { price: 32.20, prevClose: 31.95 },
+        platinum: { price: 1015, prevClose: 1008 },
+        palladium: { price: 985, prevClose: 978 }
     };
 
     for (const [metal, data] of Object.entries(fallbackData)) {
